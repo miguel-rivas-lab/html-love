@@ -1,0 +1,162 @@
+$f_title: 'leaguegothic', helvetica, sans-serif, verdana;
+$f_body: 'Montserrat', helvetica, sans-serif, verdana;
+
+$orange: #FF7400;
+$yellow: #FFCB00;
+
+@mixin define-font($name, $weight, $style, $file, $id)
+{
+    @font-face
+    {
+        font-family: $name;
+        font-weight: $weight;
+        font-style: $style;
+
+        src: url('#{$file}.eot');
+        src: url('#{$file}.eot?#iefix') format('embedded-opentype'),
+        url('#{$file}.woff2') format('woff2'),
+        url('#{$file}.woff') format('woff'),
+        url('#{$file}.ttf') format('truetype'),
+        url('#{$file}.svg##{$id}') format('svg');
+    }
+}
+
+@include define-font('leaguegothic', normal, normal, '../fonts/leaguegothic', league_gothicregular);
+
+
+/* -------------------------------------- */
+
+html,
+body
+{
+	display: block;
+	text-align: left;
+	margin: 0;
+	padding: 0;
+	overflow-x: hidden;
+}
+
+head
+{
+	display: none;
+}
+
+
+br
+{
+	display: block;
+}
+
+div
+{
+	padding: 0;
+	display: block;
+	margin: auto;
+}
+
+section
+{
+	text-decoration: none;
+}
+
+.container,
+.txtInfo
+{
+	max-width: 560px;
+}
+
+h1
+{
+	quotes: none;
+	font-size: 145pt;
+	line-height: 1;
+	color: #fff;
+
+	em
+	{
+		display: block;
+		color: $orange;
+		font-weight: normal;
+	}
+}
+
+h2
+{
+	font-size: 135pt;
+	line-height: .8;
+	text-align: center;
+}
+
+h3
+{
+	font-size: 80pt;
+	line-height: .8;
+}
+
+h4
+{
+	font-size: 23pt;
+	line-height: 1;
+}
+
+h1,
+h2,
+h3,
+h4
+{
+	margin: 0 auto;
+	text-transform: uppercase;
+	display: block;
+	font-family: $f_title;
+	font-weight: normal;
+}
+
+p
+{
+	border: none;
+	background-color: transparent;
+	display: block;
+	padding: 0;
+	font-family: $f_body;
+	margin: 0 auto;
+	text-align: center;
+}
+
+em
+{
+	font-weight: bold;
+	display: inline;
+	font-style: normal;
+}
+
+section
+{
+	position: relative;
+	z-index: 1;
+}
+
+.txtInfo
+{
+	&:nth-child(odd)
+	{
+		text-align: right;
+	}
+
+	&:nth-child(even)
+	{
+		text-align: left;
+	}
+
+	p,
+	h3
+	{
+		text-align: inherit;
+	}
+}
+
+@import "includes/intro";
+@import "includes/newFriends";
+@import "includes/oldFriends";
+@import "includes/notFriends";
+@import "includes/footer";
+@import "includes/animations";
